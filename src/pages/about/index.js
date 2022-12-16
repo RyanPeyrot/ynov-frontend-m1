@@ -1,5 +1,5 @@
 import TitlePage from "../../components/TitlePage";
-function Index(props) {
+function Index() {
     return (
         <div><TitlePage title="About"/></div>
     );
