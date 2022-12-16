@@ -28,11 +28,26 @@ const Index = () => {
             });
     }
 
+    function submitPost(e) {
+        e.preventDefault();
+        fetch(baseUrl,{
+            method : "POST",
+            headers: {
+                'Content-type':"application/json"
+            },
+            body:JSON.stringify(userForm)
+        }).then(res => {
+            res.json()
+        .then(user=>console.log(user))})
+            .catch(err=>console.log(err));
+    }
+
     return (
         <div className="registerPage">
             <TitlePage title="Register"></TitlePage>
             <div style={{display:"flex"}}>
-            <div className="register-form">
+            <form className="register-form">
+                <div style={{display:"flex"}}>
                 <FormInput type="text"
                            titleLabel="Firstname"
                            inputName="firstName"
@@ -49,6 +64,7 @@ const Index = () => {
                                handleInput(e)
                            }}>
                 </FormInput>
+                </div>
                 <FormInput type="text"
                            titleLabel="Email"
                            inputName="email"
@@ -65,9 +81,9 @@ const Index = () => {
                                handleInput(e)
                            }}>
                 </FormInput>
-                <FormButton text="Valider" fonction={createPost}></FormButton>
-            </div>
-            <img src="/img.jpeg"/>
+                <FormButton text="S'inscrire" handleClick={submitPost}></FormButton>
+            </form>
+            <img src="/dino.svg"/>
             </div>
         </div>
     );

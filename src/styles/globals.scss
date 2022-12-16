@@ -41,7 +41,7 @@ img {
 .register-form, .login-form{
   padding: 1em;
   height: auto;
-  width: 60%;
+  width: 40%;
 }
 
 .login-form{
@@ -75,7 +75,7 @@ img {
   vertical-align: middle;
   white-space: nowrap;
   width: auto;
-  margin: auto;
+  margin-left: auto;
 }
 
 .form-button:hover{
@@ -115,7 +115,6 @@ img {
   display: inline-block;
   color: #000;
   padding: .9em 1.8em;
-  border: none;
   cursor: pointer;
   outline: none;
   -webkit-border-radius: 4px;
@@ -129,7 +128,7 @@ img {
 }
 .input-form:hover {
   background-color: #EEE;
-  color: white;
+  color: black;
 }
 
 .input-form.active {
@@ -145,5 +144,6 @@ label{
 }
 
 img{
-width: 40%;
+  width: 60%;
+  height: auto;
 }
