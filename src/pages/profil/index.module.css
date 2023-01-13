@@ -1,0 +1,14 @@
+.field__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: auto;
+  width: 500px;
+  margin: auto;
+}
+.field__btn {
+  width: fit-content;
+  margin: auto;
+}
+
+/*# sourceMappingURL=index.module.css.map */

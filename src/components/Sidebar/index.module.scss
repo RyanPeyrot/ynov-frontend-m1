@@ -1,0 +1,41 @@
+.sidebar{
+  &__main{
+    width:10%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-shadow: 10px 0px 10px 10px #e2e1e1ab;
+    font-size:30px;
+  }
+  &__title{
+    margin: 10px 0 0 20px;
+  }
+  &__menu{
+    height: 100%;
+      .navbar__list {
+        height: 100%;
+        list-style: none;
+        margin: 0px 0px 0px 30px;
+        display: flex;
+        flex-direction: column;
+        .navbar__item {
+          a {
+            color: black;
+            text-decoration: none;
+            font-size: 15px;
+          }
+      }
+        .navbar__bottom {
+          margin-top: auto;
+          margin-bottom: 10px;
+          a {
+            color: red;
+            text-decoration: none;
+            font-size: 15px;
+          }
+        }
+    }
+  }
+
+}

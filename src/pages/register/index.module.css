@@ -1,0 +1,18 @@
+.register__main {
+  width: 500px;
+  margin: 80px auto;
+}
+.register__form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 50px auto;
+}
+.register__naming {
+  display: flex;
+}
+.register__naming div {
+  width: 50%;
+}
+
+/*# sourceMappingURL=index.module.css.map */

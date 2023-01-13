@@ -1,3 +1,5 @@
+@import "Helpers/mainFont";
+@import "Helpers/reset";
 html,
 body {
   padding: 0;
@@ -5,145 +7,35 @@ body {
   font-family: "Apple SD Gothic Neo"
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
-}
-
-.title-page {
-  text-align: center;
-  margin: .8em;
-}
-
-img {
-  width: auto;
-}
-
-.register-page {
-  display: flex;
-  flex-direction: column;
-}
-
-.register-form, .login-form{
-  padding: 1em;
-  height: auto;
-  width: 40%;
-}
-
-.login-form{
-  margin: auto;
-}
-
-.form-button {
-  background-color: #3F8EFC;
-  border: solid transparent;
-  border-radius: 16px;
-  border-width: 0 0 4px;
-  box-sizing: border-box;
-  color: #FFFFFF;
-  cursor: pointer;
-  display: block;
-  font-family: din-round,sans-serif;
+.btn {
+  width: 20%;
+  border-radius: 5px;
   font-size: 15px;
-  font-weight: bold;
-  letter-spacing: .8px;
-  line-height: 20px;
-  outline: none;
-  overflow: visible;
-  padding: 13px 16px;
-  text-align: center;
-  text-transform: uppercase;
-  touch-action: manipulation;
-  transform: translateZ(0);
-  transition: filter .2s;
-  user-select: none;
-  -webkit-user-select: none;
-  vertical-align: middle;
-  white-space: nowrap;
-  width: auto;
-  margin-left: auto;
-}
-
-.form-button:hover{
-  background-color: #2667FF;
-}
-
-.form-button:after {
-  background-clip: padding-box;
-  background-color: #3F8EFC;
-  border: solid transparent;
-  border-radius: 16px;
-  border-width: 0 0 4px;
-  bottom: -4px;
-  content: "";
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: -1;
-}
-
-.form-button:focus {
-  user-select: auto;
-}
-
-.form-button:hover:not(:disabled) {
-  filter: brightness(1.1);
-  -webkit-filter: brightness(1.1);
-}
-
-.form-button:disabled {
-  cursor: auto;
-}
-
-.input-form {
-  width: 100%;
   display: inline-block;
-  color: #000;
-  padding: .9em 1.8em;
+  transition: 0.3s all;
+  padding: 10px 20px;
+  border: none;
   cursor: pointer;
-  outline: none;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 20px;
-  -webkit-transition: all .1s linear;
-  -moz-transition: all .1s linear;
-  transition: all .1s linear;
-  margin: .5em;
-  border: solid black 1px;
-}
-.input-form:hover {
-  background-color: #EEE;
-  color: black;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+
+  &__form{
+    width: 80%;
+    margin: 0 10%;
+  }
+  &__blue {
+    background: #00619D;
+    color: white;
+    border: 1px solid black;
+    &:hover {
+      background: white;
+      color: black;
+      border: 1px solid black;
+    }
+  }
 }
 
-.input-form.active {
-  width: 200px;
-  outline: none;
-  color: #efaa9d;
-  text-align: left;
-  cursor: inherit;
-}
-
-label{
-  margin: .5em;
-}
-
-img{
-  width: 60%;
-  height: auto;
+.blur{
+  filter:blur(5px);
 }

@@ -2,9 +2,10 @@ import React, {useState} from 'react';
 import FormButton from "../../components/FormButton";
 import FormInput from "../../components/FormInput";
 import TitlePage from "../../components/TitlePage";
-import axios from "axios";
+import AuthService from "../../service/auth.service"
+import styles from "./index.module.scss"
 
-const baseUrl = "http://localhost:4000/api/v1/user/auth"
+const baseUrl = `${process.env.NEXT_PUBLIC_API_BASEURL}/v1/auth/register`
 
 const Index = () => {
 
@@ -19,35 +20,23 @@ const Index = () => {
         setUserForm({...userForm, [e.target.name]: e.target.value});
     }
 
-    function createPost() {
-        axios
-            .post(baseUrl, {...userForm})
-            .then((res) => {
-                console.log(res)
-                console.log(res.data);
-            });
-    }
-
     function submitPost(e) {
         e.preventDefault();
-        fetch(baseUrl,{
-            method : "POST",
-            headers: {
-                'Content-type':"application/json"
-            },
-            body:JSON.stringify(userForm)
-        }).then(res => {
-            res.json()
-        .then(user=>console.log(user))})
+        AuthService.register(userForm)
+            .then( res => {
+                if(!res.auth){
+
+                }
+                localStorage.setItem('token',res.token);
+            })
             .catch(err=>console.log(err));
     }
 
     return (
-        <div className="registerPage">
+        <div className={styles.register__main}>
             <TitlePage title="Register"></TitlePage>
-            <div style={{display:"flex"}}>
-            <form className="register-form">
-                <div style={{display:"flex"}}>
+            <form className={styles.register__form}>
+                <div className={styles.register__naming}>
                 <FormInput type="text"
                            titleLabel="Firstname"
                            inputName="firstName"
@@ -81,10 +70,8 @@ const Index = () => {
                                handleInput(e)
                            }}>
                 </FormInput>
-                <FormButton text="S'inscrire" handleClick={submitPost}></FormButton>
+                <FormButton btnClass="btn btn__form btn__blue" text="S'inscrire" handleClick={submitPost}></FormButton>
             </form>
-            <img src="/dino.svg"/>
-            </div>
         </div>
     );
 };

@@ -1,0 +1,34 @@
+.header__main {
+  height: 10vh;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 10px 10px 10px #e2e1e1ab;
+}
+.header__logo img {
+  margin: 0 30px;
+  width: 70px;
+}
+.header__menu {
+  margin: 0 50px;
+}
+
+.nav__list {
+  display: flex;
+}
+.nav__item {
+  margin: 0 10px;
+}
+.nav__item a {
+  text-decoration: none;
+}
+.nav__item a:visited {
+  color: initial;
+}
+.nav__item:hover {
+  transition: 0.3s;
+  transform: scale(1.2, 1.2);
+}
+
+/*# sourceMappingURL=index.module.css.map */

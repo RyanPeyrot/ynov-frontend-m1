@@ -1,0 +1,15 @@
+.field_wrapper {
+  margin: 10px;
+}
+.field__name {
+  font-size: 2em;
+  margin-bottom: 0;
+  color: #888;
+  opacity: 50%;
+}
+.field__content {
+  font-size: 20px;
+  margin-top: 3px;
+}
+
+/*# sourceMappingURL=index.module.css.map */

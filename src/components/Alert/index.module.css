@@ -1,0 +1,28 @@
+.alert__main {
+  position: absolute;
+  top: 5vh;
+  left: 45vw;
+  border: 4px solid;
+  border-radius: 10px;
+  width: fit-content;
+  padding: 5px 20px;
+  opacity: 0;
+}
+
+.active {
+  opacity: 1;
+  top: 15vh;
+  transition: top 1s;
+}
+
+.default {
+  border-color: black;
+  color: black;
+}
+
+.danger {
+  border-color: red;
+  color: red;
+}
+
+/*# sourceMappingURL=index.module.css.map */

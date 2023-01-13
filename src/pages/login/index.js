@@ -2,9 +2,18 @@ import React, {useState} from 'react';
 import FormButton from "../../components/FormButton";
 import FormInput from "../../components/FormInput";
 import TitlePage from "../../components/TitlePage";
+import AuthService from "../../service/auth.service"
+import {useRouter} from "next/router";
+import Alert from "../../components/Alert";
+import styles from "./index.module.scss"
 
 const Index = () => {
-
+    let route = useRouter();
+    const [errorAuth, setErrorAuth] = useState({
+        display : false,
+        state: "",
+        errorMessage : ""
+    })
     const [userForm, setUserForm] = useState({
         firstName : "",
         lastName : "",
@@ -16,9 +25,28 @@ const Index = () => {
         setUserForm({...userForm, [e.target.name]: e.target.value});
     }
 
+
+    function submitPost(e) {
+        e.preventDefault();
+        AuthService.login(userForm)
+            .then( res => {
+                if(!res.auth){
+                    console.log(res.message);
+                    setErrorAuth({display: true, state : "active", errorMessage: res.message})
+                } else {
+                    localStorage.setItem('token',res.token);
+                    return route.push("/profil");
+                }
+            })
+            .catch(err=>console.log(err));
+    }
+
     return (
-        <div>
+        <div className={styles.login__main}>
             <TitlePage title="Login"></TitlePage>
+            {errorAuth.display &&
+                (<Alert alertState={errorAuth.state} alertType="danger" alertContent={errorAuth.errorMessage}></Alert>)
+            }
             <form className="login-form">
                 <FormInput type="text"
                            titleLabel="Email"
@@ -28,7 +56,7 @@ const Index = () => {
                                handleInput(e)
                            }}>
                 </FormInput>
-                <FormInput type="text"
+                <FormInput type="password"
                            titleLabel="Password"
                            inputName="password"
                            inputValue={userForm.password}
@@ -36,7 +64,7 @@ const Index = () => {
                                handleInput(e)
                            }}>
                 </FormInput>
-                <FormButton text="Valider"></FormButton>
+                <FormButton btnClass="btn btn__form btn__blue" text="Valider" handleClick={submitPost}></FormButton>
             </form>
         </div>
     );

@@ -1,0 +1,20 @@
+.register{
+  &__main{
+    width: 500px;
+    margin: 80px auto;
+  }
+
+  &__form{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 50px auto;
+  }
+
+  &__naming{
+    display: flex;
+    div{
+      width : 50%;
+    }
+  }
+}
