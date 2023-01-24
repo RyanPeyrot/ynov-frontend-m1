@@ -1,0 +1,12 @@
+.grid__container {
+  margin: 20px 30px;
+}
+.grid__wrapper {
+  display: grid;
+  grid-auto-flow: row dense;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+  overflow: inherit;
+}
+
+/*# sourceMappingURL=index.module.css.map */

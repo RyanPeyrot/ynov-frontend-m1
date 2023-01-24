@@ -1,17 +1,19 @@
 .header__main {
-  height: 10vh;
-  padding: 10px;
+  padding: 20px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 10px 10px 10px #e2e1e1ab;
+  border-bottom: rgba(192, 192, 192, 0.5) solid 1px;
+}
+.header__logo {
+  padding-left: 20px;
 }
 .header__logo img {
   margin: 0 30px;
-  width: 70px;
+  width: 120px;
 }
 .header__menu {
-  margin: 0 50px;
+  margin: 0 10px;
 }
 
 .nav__list {
