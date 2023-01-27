@@ -7,7 +7,7 @@ const Index = ({places}) => {
         <div className={styles.grid__container}>
             <div className={styles.grid__wrapper}>
                 {
-                    places && places.map((place) => (
+                    places.length > 0 && places.map(place => (
                         <PlaceCard key={place._id} place={place}></PlaceCard>
                     ))
                 }

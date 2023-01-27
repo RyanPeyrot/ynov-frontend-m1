@@ -4,20 +4,33 @@
     width: 100%;
   }
 
-  &__img{
+  &__thumbnail{
+    position: relative;
     width: 100%;
     height: auto;
-    img{
-      object-fit:cover;
-      width: 100%;
-      height: 100%;
-      border-radius: 10%;
-      aspect-ratio: 1/1;
-    }
   }
   &__content{
+    display: flex;
     height: fit-content;
     margin : 5px 0;
+  }
+}
+.thumbnail__img{
+    object-fit:cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 10%;
+    aspect-ratio: 1/1;
+}
+
+.btn__wishlist{
+  border:none;
+  background: none;
+  position: absolute;
+  top:10px;
+  right: 10px;
+  img{
+    width: 20px;
   }
 }
 
@@ -41,5 +54,9 @@
       font-weight:700;
     }
     font-weight: lighter;
+  }
+  &__rate{
+    font-size: smaller;
+    margin-left: auto;
   }
 }

@@ -10,6 +10,7 @@ import FormButton from "../../components/FormButton";
 import modal from "../../components/Modal";
 import AuthService from "../../service/auth.service";
 import userService from "../../service/user.service";
+import WithAuth from "../../HOC/WithAuth";
 
 const Index = () => {
     const router = useRouter()
@@ -115,4 +116,4 @@ const Index = () => {
         </div>
     )
 }
-export default Index;
+export default WithAuth(Index);

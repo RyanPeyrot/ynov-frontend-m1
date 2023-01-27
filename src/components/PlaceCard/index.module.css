@@ -2,20 +2,34 @@
   height: 100%;
   width: 100%;
 }
-.card__img {
+.card__thumbnail {
+  position: relative;
   width: 100%;
   height: auto;
 }
-.card__img img {
+.card__content {
+  display: flex;
+  height: fit-content;
+  margin: 5px 0;
+}
+
+.thumbnail__img {
   object-fit: cover;
   width: 100%;
   height: 100%;
   border-radius: 10%;
   aspect-ratio: 1/1;
 }
-.card__content {
-  height: fit-content;
-  margin: 5px 0;
+
+.btn__wishlist {
+  border: none;
+  background: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.btn__wishlist img {
+  width: 20px;
 }
 
 .content__title {
@@ -37,6 +51,10 @@
 }
 .content__price span {
   font-weight: 700;
+}
+.content__rate {
+  font-size: smaller;
+  margin-left: auto;
 }
 
 /*# sourceMappingURL=index.module.css.map */
