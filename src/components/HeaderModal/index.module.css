@@ -1,0 +1,51 @@
+.nav__list {
+  display: flex;
+}
+.nav__item {
+  margin: 0;
+  padding: 3px 5px;
+}
+.nav__item a {
+  text-decoration: none;
+}
+.nav__item a:visited {
+  color: initial;
+}
+.nav__item:hover {
+  background: rgba(192, 192, 192, 0.2);
+}
+
+.modal__menu {
+  z-index: 999999;
+  position: absolute;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0px 0px 5px rgba(192, 192, 192, 0.7);
+  transform: translate(-80px, 10%);
+}
+.modal__menu ul {
+  flex-direction: column;
+  padding: 8px 0px;
+}
+.modal__menu ul li {
+  margin: 0;
+  padding: 3px 5px;
+}
+.modal__menu ul li a {
+  display: block;
+  width: 150px;
+}
+
+.divider {
+  margin: 5px 0px !important;
+  padding: 0 !important;
+  content: "";
+  display: block;
+  width: 100%;
+  border-top: 1px solid #bbb;
+}
+.divider:hover {
+  background: none;
+}
+
+/*# sourceMappingURL=index.module.css.map */

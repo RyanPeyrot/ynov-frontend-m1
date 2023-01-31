@@ -4,10 +4,10 @@ import UserField from "../../components/UserField";
 import styles from "./index.module.scss"
 import UserService from "../../service/user.service";
 import {useRouter} from "next/router";
-import Modal from "../../components/Modal";
+import Modal from "../../components/ProfilModal";
 import FormInput from "../../components/FormInput";
 import FormButton from "../../components/FormButton";
-import modal from "../../components/Modal";
+import modal from "../../components/ProfilModal";
 import AuthService from "../../service/auth.service";
 import userService from "../../service/user.service";
 import WithAuth from "../../HOC/WithAuth";

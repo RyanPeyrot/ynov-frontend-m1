@@ -1,13 +1,15 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import FormButton from "../../components/FormButton";
 import FormInput from "../../components/FormInput";
 import TitlePage from "../../components/TitlePage";
 import AuthService from "../../service/auth.service"
 import styles from "./index.module.scss"
+import UserContext from "../../context/UserContext";
 
 const baseUrl = `${process.env.NEXT_PUBLIC_API_BASEURL}/v1/auth/register`
 
 const Index = () => {
+    const {connect} = useContext(UserContext)
 
     const [userForm, setUserForm] = useState({
         firstName : "",
@@ -27,7 +29,7 @@ const Index = () => {
                 if(!res.auth){
 
                 }
-                localStorage.setItem('token',res.token);
+                connect(res.token);
             })
             .catch(err=>console.log(err));
     }

@@ -10,27 +10,47 @@
 }
 .header__logo img {
   margin: 0 30px;
-  width: 120px;
+  width: 110px;
 }
 .header__menu {
+  position: relative;
   margin: 0 10px;
 }
 
-.nav__list {
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+}
+
+.modal__button {
+  background: white;
+  padding: 5px 5px 5px 12px;
+  margin-right: 10px;
+  border: rgba(192, 192, 192, 0.7) solid 1px;
+  border-radius: 21px;
   display: flex;
+  justify-content: center;
+  width: fit-content;
+  height: fit-content;
+  align-items: center;
 }
-.nav__item {
-  margin: 0 10px;
+.modal__button:hover {
+  transition: 400ms;
+  box-shadow: 0px 4px 5px rgba(192, 192, 192, 0.7);
 }
-.nav__item a {
-  text-decoration: none;
+
+.img__menu {
+  width: 16px;
+  height: 16px;
+  margin: 0;
 }
-.nav__item a:visited {
-  color: initial;
-}
-.nav__item:hover {
-  transition: 0.3s;
-  transform: scale(1.2, 1.2);
+
+.img__profil {
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
 }
 
 /*# sourceMappingURL=index.module.css.map */

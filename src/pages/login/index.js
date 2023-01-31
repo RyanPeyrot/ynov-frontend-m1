@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import FormButton from "../../components/FormButton";
 import FormInput from "../../components/FormInput";
 import TitlePage from "../../components/TitlePage";
@@ -6,8 +6,10 @@ import AuthService from "../../service/auth.service"
 import {useRouter} from "next/router";
 import Alert from "../../components/Alert";
 import styles from "./index.module.scss"
+import UserContext from "../../context/UserContext";
 
 const Index = () => {
+    const {connect} = useContext(UserContext)
     let route = useRouter();
     const [errorAuth, setErrorAuth] = useState({
         display : false,
@@ -34,8 +36,7 @@ const Index = () => {
                     console.log(res.message);
                     setErrorAuth({display: true, state : "active", errorMessage: res.message})
                 } else {
-                    localStorage.setItem('token',res.token);
-                    return route.push("/profil");
+                    connect(res.token)
                 }
             })
             .catch(err=>console.log(err));
