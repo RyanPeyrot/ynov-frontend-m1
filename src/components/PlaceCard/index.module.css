@@ -10,7 +10,7 @@
 .card__content {
   display: flex;
   height: fit-content;
-  margin: 5px 0;
+  padding: 10px 20px;
 }
 
 .thumbnail__img {

@@ -25,5 +25,14 @@ export default {
                 'authorization':token
             },
         }).then(res => res.json())
+    },
+    getAllTypePlace(token){
+        return fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/v1/type-place/all`,{
+            method : "GET",
+            headers: {
+                'Content-type':"application/json",
+                'authorization':token
+            },
+        }).then(res => res.json())
     }
 }

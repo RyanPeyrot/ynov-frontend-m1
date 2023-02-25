@@ -1,13 +1,15 @@
 import styles from "./index.module.scss"
-import React from 'react';
+import React, {useContext} from 'react';
 import PlaceCard from "../PlaceCard";
+import PlaceContext from "../../context/PlaceContext";
 
-const Index = ({places}) => {
+const Index = () => {
+    const {displayPlaces} = useContext(PlaceContext);
     return (
         <div className={styles.grid__container}>
             <div className={styles.grid__wrapper}>
                 {
-                    places.length > 0 && places.map(place => (
+                    displayPlaces.length > 0 && displayPlaces.map(place => (
                         <PlaceCard key={place._id} place={place}></PlaceCard>
                     ))
                 }

@@ -8,6 +8,8 @@ import WishlistContext from "../../context/WishlistContext";
 import {useRouter} from "next/router";
 import HeaderModal from "../HeaderModal";
 import UserContext from "../../context/UserContext";
+import SearchBar from "../SearchBar";
+import Filters from "../Filters";
 const Index = () => {
     const { user } = useContext(UserContext);
     const router = useRouter();
@@ -39,6 +41,7 @@ const Index = () => {
                     <img src={AirBnBLogo.src}/>
                 </div>
             </Link>
+            <Filters></Filters>
             <div className={styles.header__menu}>
                 <button className={styles.modal__button} onClick={handleModal}>
                     <img className={styles.img__menu} src={hamburgerMenu.src}/>

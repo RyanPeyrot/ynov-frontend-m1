@@ -4,6 +4,7 @@ import MainLayout from "../layouts/MainLayout";
 import {useRouter} from "next/router";
 import {WishlistContextProvider} from "../context/WishlistContext";
 import {UserContextProvider} from "../context/UserContext";
+import {PlaceContextProvider} from "../context/PlaceContext";
 
 function MyApp({ Component, pageProps }) {
     const router = useRouter()
@@ -17,11 +18,13 @@ function MyApp({ Component, pageProps }) {
           ) : (
 
               <UserContextProvider>
-                  <WishlistContextProvider>
+              <WishlistContextProvider>
+              <PlaceContextProvider>
                   <MainLayout>
                     <Component {...pageProps} />
                   </MainLayout>
-                  </WishlistContextProvider>
+              </PlaceContextProvider>
+              </WishlistContextProvider>
               </UserContextProvider>
               )
       }

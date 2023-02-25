@@ -1,0 +1,115 @@
+.overlay {
+  z-index: 2000;
+  position: fixed;
+  inset: 0px;
+  overflow-y: auto;
+  background: rgba(34, 34, 34, 0.7);
+}
+
+.modal__main {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.28) 0px 8px 28px !important;
+  width: 50vw;
+  height: 90vh;
+  background-color: white;
+  z-index: 9999;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.modal__header {
+  -webkit-box-pack: justify;
+  -webkit-box-align: center;
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 24px;
+  min-height: 50px;
+  border-bottom: 1px solid #ebebeb;
+  color: #222222;
+  font-size: 25px;
+  font-weight: 800;
+}
+.modal__header div {
+  -webkit-box-flex: 0;
+  flex: 0 0 20px;
+  text-align: center;
+}
+.modal__header div img {
+  width: 10px;
+  vertical-align: middle;
+  margin: 0px;
+  padding: 0px;
+}
+.modal__header h1 {
+  -webkit-box-flex: 0;
+  overflow: hidden;
+  flex: 0 1 auto;
+  text-align: center;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+.modal__footer {
+  -webkit-box-pack: justify;
+  -webkit-box-align: center;
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px;
+  min-height: 48px;
+  border-top: 1px solid #ebebeb;
+  color: #222222;
+  font-size: 18px;
+  line-height: 20px;
+}
+.modal__footer div {
+  font-weight: 400;
+  text-align: center;
+  padding: 10px;
+}
+.modal__footer .clearBtn {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.modal__footer .clearBtn:hover {
+  border-radius: 5px;
+  background: rgba(200, 200, 200, 0.2);
+}
+.modal__footer .validBtn {
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
+  color: white;
+}
+.modal__footer .validBtn:hover {
+  background: #000;
+}
+.modal__content {
+  overflow-x: hidden;
+  height: 100%;
+  padding: 20px;
+}
+.modal__content section {
+  border-bottom: 1px solid #ebebeb;
+}
+.modal__content section:last-child {
+  border-bottom: none;
+}
+
+.closeBtn {
+  cursor: pointer;
+  background: none;
+  padding: 4px;
+}
+
+.closeBtn:hover {
+  border-radius: 70%;
+  background: rgba(200, 200, 200, 0.2);
+}
+
+/*# sourceMappingURL=index.module.css.map */

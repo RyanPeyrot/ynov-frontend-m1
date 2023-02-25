@@ -1,0 +1,107 @@
+.moreBtn{
+  cursor: pointer;
+  span{
+    padding: 5px;
+  }
+  img{
+    width: 20px;
+    vertical-align: middle;
+  }
+  background: none;
+  padding:10px 20px;
+  font-size: 1em;
+  margin: 0px 6px;
+  border: 1px solid rgba(192,192,192,0.5);
+  border-radius: 10px;
+}
+
+.priceWrapper, .capacityWrapper, .placeTypeWrapper {
+  &__content{
+    padding: 20px 10px;
+  }
+  h2{
+      font-size: 30px;
+  }
+}
+.priceInputWrapper{
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  span{
+    align-self: center;
+    margin: 0 5px;
+  }
+}
+.priceInputBox{
+  padding: 8px;
+  box-shadow: inset 0 0 0 1px #B0B0B0;
+  border-radius: 12px;
+  &__label{
+    font-size: smaller;
+    color: #B0B0B0;
+  }
+
+  &__content{
+    display: flex;
+    font-size: larger;
+    div,input{
+      padding: 3px 0px;
+    }
+    input{
+      font-size: inherit;
+      line-height: inherit;
+      padding: 0;
+      border: none;
+      appearance: none;
+      margin: 0 4px;
+      width: 100%;
+      &:focus-visible{
+        outline: none;
+        border: none;
+      }
+    }
+  }
+}
+
+.boxActive{
+  border: 3px;
+}
+
+.capacityWrapper__content{
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  overflow-x:scroll;
+}
+.capacity__item{
+  padding: 10px 20px;
+  margin-right: 4px;
+  border-radius: 30px;
+}
+
+.inactive{
+  background: none;
+  border: 1px solid #DDD;
+  &:hover{
+    border: 1px solid #000;
+  }
+}
+
+.active{
+  background: #000;
+  color: #FFF;
+  border: 1px solid #000;
+}
+
+.placeTypeWrapper__content{
+  display: grid;
+  grid-template-columns: repeat(2,25vw);
+  gap : 10px;
+  &>*{
+    font-size:x-large;
+  }
+}
+
+.placeTypeWrapper__item{
+
+}

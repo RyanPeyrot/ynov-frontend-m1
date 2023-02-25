@@ -1,6 +1,5 @@
 import styles from './index.module.scss'
 import React, {useContext} from 'react';
-import image from "../../../public/image-test.webp";
 import heart from "../../../public/heart.png"
 import WishlistContext from "../../context/WishlistContext";
 
@@ -15,7 +14,7 @@ const Index = ({place}) => {
                         addPlaceToWishlist(place);
                     }
                 }><img src={heart.src}/></button>
-                <img className={styles.thumbnail__img} src={image.src}/>
+                <img className={styles.thumbnail__img} src={place.image[0]}/>
             </div>
             <div className={styles.card__content}>
                 <div className={styles.content__metadata}>

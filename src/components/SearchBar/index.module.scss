@@ -1,0 +1,46 @@
+.wrapper{
+  width: 350px;
+}
+
+.searchBar{
+  width: 100%;
+  position: relative;
+  display: flex;
+  border: 1px solid rgba(192,192,192,0.5);
+  border-radius: 30px;
+  box-shadow: 1px 1px 5px rgba(192, 192, 192, 0.7);
+
+  input{
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 21px;
+    padding : 0 15px;
+  }
+
+  button{
+    border-radius: 100%;
+    width: 35px;
+    height: 30px;
+    cursor: pointer;
+    padding: 7px;
+    margin: 6px 6px 6px 0;
+    border: none;
+  }
+}
+
+.searchBtn {
+  background: #FF385C;
+  img{
+    width: 100%;
+    filter: invert(100%);
+  }
+}
+
+.deleteContentBtn {
+  visibility: hidden;
+  background: none;
+}
+
+

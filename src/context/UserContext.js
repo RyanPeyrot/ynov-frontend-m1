@@ -1,6 +1,5 @@
 import {createContext, useEffect, useState} from "react";
 import userService from "../service/user.service";
-import WishlistContext from "./WishlistContext";
 import {router} from "next/router";
 import UserService from "../service/user.service";
 
