@@ -24,7 +24,11 @@ const Index = ({place}) => {
                     <div className={styles.content__price}><span>{place.pricing.perDay + "€"}</span> par nuit</div>
                 </div>
                 <div className={styles.content__rate}>
-                    <span>4,99</span>
+                    {
+                        place.rate != null
+                            ? (<span>{place.rate}</span>)
+                            : (<span>0,00</span>)
+                    }
                 </div>
             </div>
         </div>

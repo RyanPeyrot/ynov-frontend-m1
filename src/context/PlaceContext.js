@@ -86,6 +86,7 @@ export const PlaceContextProvider = ({children}) => {
 
 
     const context = {
+        places,
         displayPlaces,
         updateFilter,
         updateSearch,
