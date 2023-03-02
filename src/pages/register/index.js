@@ -15,11 +15,26 @@ const Index = () => {
         firstName : "",
         lastName : "",
         email : "",
-        password :""
+        password :"",
+        type:['CUSTOMER']
     });
 
     const handleInput = (e) => {
         setUserForm({...userForm, [e.target.name]: e.target.value});
+    }
+
+    const addType = (e) => {
+        if(e.target.checked){
+            if(!userForm.type.includes("OWNER")){
+                userForm.type.push(e.target.value);
+            }
+        } else {
+            if(userForm.type.includes("OWNER")){
+                const index = userForm.type.indexOf(e.target.value);
+                userForm.type.splice(index,1)
+            }
+        }
+
     }
 
     function submitPost(e) {
@@ -64,7 +79,7 @@ const Index = () => {
                                handleInput(e)
                            }}>
                 </FormInput>
-                <FormInput type="text"
+                <FormInput type="password"
                            titleLabel="Password"
                            inputName="password"
                            inputValue={userForm.password}
@@ -72,6 +87,16 @@ const Index = () => {
                                handleInput(e)
                            }}>
                 </FormInput>
+                <div>
+                    <FormInput type="checkbox"
+                                titleLabel="Loueur"
+                                inputName="type"
+                                inputValue="OWNER"
+                                inputOnChange={(e) => {
+                                    addType(e);
+                                }}>
+                    </FormInput>
+                </div>
                 <FormButton btnClass="btn btn__form btn__blue" text="S'inscrire" handleClick={submitPost}></FormButton>
             </form>
         </div>

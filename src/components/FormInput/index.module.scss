@@ -13,4 +13,12 @@
     width: 100%;
     box-sizing: border-box;
   }
+
+  input[type=checkbox] {
+    width: 30%;
+    height: 20px;
+    vertical-align: middle;
+    position: relative;
+    bottom: 1px;
+  }
 }

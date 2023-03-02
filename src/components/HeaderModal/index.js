@@ -12,8 +12,17 @@ const Index = ({isLogged}) => {
                 <div className={styles.modal__menu}>
                     <ul className={styles.nav__list}>
                         <li className={styles.nav__item}>
-                            <Link href="/profil">Profil</Link>
+                            <Link href="/profil">Mon profil</Link>
                         </li>
+                        <li className={styles.nav__item}>
+                            <Link href="/">Mes reservations</Link>
+                        </li>
+                            { user.type.length >0 && user.type.includes("OWNER")
+
+                                (<li className={styles.nav__item}>
+                                    <Link href="/">Mes annonces</Link>
+                                </li>)
+                            }
                         { user.isAdmin ? (
                             <li className={styles.nav__item}>
                                 <Link href="/admin">Panel administrateur</Link>
