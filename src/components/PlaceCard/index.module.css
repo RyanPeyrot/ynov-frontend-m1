@@ -2,6 +2,10 @@
   height: 100%;
   width: 100%;
 }
+.card__main a {
+  color: inherit;
+  text-decoration: none;
+}
 .card__thumbnail {
   position: relative;
   width: 100%;

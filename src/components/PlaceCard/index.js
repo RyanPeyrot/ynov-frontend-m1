@@ -2,12 +2,15 @@ import styles from './index.module.scss'
 import React, {useContext} from 'react';
 import heart from "../../../public/heart.png"
 import WishlistContext from "../../context/WishlistContext";
+import Link from "next/link";
 
 const Index = ({place}) => {
     const { addPlaceToWishlist } = useContext(WishlistContext);
 
+
     return (
         <div className={styles.card__main}>
+            <Link href={"/places/"+place._id}>
             <div className={styles.card__thumbnail}>
                 <button className={styles.btn__wishlist} onClick={
                     () => {
@@ -31,6 +34,7 @@ const Index = ({place}) => {
                     }
                 </div>
             </div>
+            </Link>
         </div>
     );
 };
