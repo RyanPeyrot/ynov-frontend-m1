@@ -38,7 +38,11 @@ export const UserContextProvider = ({children}) => {
                 }
             })
         console.log(user);
-        router.push("/profil");
+        if(localStorage.getItem('redirect')){
+            router.push(localStorage.getItem('redirect'));
+        } else {
+            router.push("/profil");
+        }
     }
 
     const context = {

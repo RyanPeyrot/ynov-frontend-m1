@@ -3,7 +3,6 @@ import PlaceService from "../../../service/place.service";
 import {useRouter} from "next/router";
 import styles from './index.module.scss'
 import bookingService from "../../../service/booking.service";
-import PlaceContext from "../../../context/PlaceContext";
 import UserContext from "../../../context/UserContext";
 
 const Index = () => {
@@ -26,7 +25,6 @@ const Index = () => {
     },[router.isReady])
 
     function book(){
-        console.log("book");
         if(checkIn.toString() === "Invalid Date"){
             document.getElementById("check-in").parentElement.style.borderColor = "#d62828"
             document.getElementById("iError").innerHTML = "Date invalide"
@@ -40,6 +38,8 @@ const Index = () => {
 
         if(user == null){
             router.push('/login');
+            localStorage.setItem('redirect',router.asPath)
+            return null;
         }
 
         const newBooking = {
@@ -98,7 +98,8 @@ const Index = () => {
 
     function verifyDate(value){
         const dateAr = value.split('/');
-        return new Date(dateAr[2], dateAr[1]-1, dateAr[0]);
+        const date = dateAr[2]+"-"+dateAr[1]+"-"+dateAr[0]+"T00:00:00Z";
+        return new Date(date);
     }
 
 

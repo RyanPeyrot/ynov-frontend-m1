@@ -4,7 +4,7 @@ import Link from "next/link";
 import UserContext from "../../context/UserContext";
 
 const Index = ({isLogged}) => {
-    const {disconnect} = useContext(UserContext);
+    const {disconnect,user} = useContext(UserContext);
 
     return (
         <div>
@@ -14,6 +14,11 @@ const Index = ({isLogged}) => {
                         <li className={styles.nav__item}>
                             <Link href="/profil">Profil</Link>
                         </li>
+                        { user.isAdmin ? (
+                            <li className={styles.nav__item}>
+                                <Link href="/admin">Panel administrateur</Link>
+                            </li>
+                        ) : null }
                         <li className={`${styles.nav__item} ${styles.divider}`}></li>
                         <li onClick={disconnect} className={styles.nav__item}>
                             <Link href="/">Deconnexion</Link>
