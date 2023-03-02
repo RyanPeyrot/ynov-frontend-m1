@@ -17,5 +17,23 @@ export default {
                 'authorization':token
             }
         }).then(res => res.json())
+    },
+    getMyBookingsAsGuest(token){
+        return fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/v1/booking`,{
+            method : "GET",
+            headers: {
+                'Content-type':"application/json",
+                'authorization':token
+            }
+        }).then(res => res.json())
+    },
+    getMyBookingsAsHost(token){
+        return fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/v1/booking`,{
+            method : "GET",
+            headers: {
+                'Content-type':"application/json",
+                'authorization':token
+            }
+        }).then(res => res.json())
     }
 }
