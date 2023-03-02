@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import TitlePage from "../../components/TitlePage";
 import UserField from "../../components/UserField";
 import styles from "./index.module.scss"
@@ -7,25 +7,20 @@ import {useRouter} from "next/router";
 import Modal from "../../components/ProfilModal";
 import FormInput from "../../components/FormInput";
 import FormButton from "../../components/FormButton";
-import modal from "../../components/ProfilModal";
-import AuthService from "../../service/auth.service";
 import userService from "../../service/user.service";
 import WithAuth from "../../HOC/WithAuth";
+import userContext from "../../context/UserContext";
 
 const Index = () => {
-    const router = useRouter()
-    let modalDisplay = false;
+    const {user} = useContext(userContext)
+    const router = useRouter();
+    const [loggedUser, setLoggedUser] = useState();
     const [userForm, setUserForm] = useState({
         firstName : "",
         lastName : "",
         email : "",
-        password :""
-    });
-    const [user, setUser] = useState( {
-        firstName : "",
-        lastName : "",
-        email : "",
-        password :""
+        password :"",
+        type:""
     });
 
     const [modal, setModal] = useState({
@@ -33,15 +28,7 @@ const Index = () => {
     })
 
     useEffect(() => {
-        UserService.getMe(localStorage.getItem('token'))
-        .then(res => {
-            if(res.auth == false){
-                router.push("/login");
-            }else {
-                setUserForm({...userForm, firstName: res.firstName,lastName: res.lastName,email: res.email,password: res.password});
-                setUser({...userForm});
-            }
-        })
+        setUserForm(user);
     }, [])
 
     function handleModal() {
@@ -60,11 +47,25 @@ const Index = () => {
         setUserForm({...userForm, [e.target.name]: e.target.value});
     }
 
+    const addType = (e) => {
+        if(e.target.checked){
+            if(!userForm.type.includes("OWNER")){
+                userForm.type.push(e.target.value);
+            }
+        } else {
+            if(userForm.type.includes("OWNER")){
+                const index = userForm.type.indexOf(e.target.value);
+                userForm.type.splice(index,1)
+            }
+        }
+
+    }
+
     function submitPost(e) {
         e.preventDefault();
         userService.update(localStorage.getItem('token'),userForm)
             .then( res => {
-                console.log(res.message)
+                router.push('/profil');
             })
             .catch(err=>console.log(err));
         handleModal();
@@ -79,6 +80,7 @@ const Index = () => {
                     <UserField name="Prenom" content={user.firstName}></UserField>
                     <UserField name="Email" content={user.email}></UserField>
                     <UserField name="Mot de passe" content={user.password}></UserField>
+                    <UserField name="Types" content={user.type}></UserField>
                     <button className={`btn btn__blue ${styles.field__btn} `} onClick={handleModal}>Modifier son profil</button>
                 </div>
             </div>
@@ -110,6 +112,16 @@ const Index = () => {
                                    handleInput(e)
                                }}>
                     </FormInput>
+                    <div>
+                        <FormInput type="checkbox"
+                                   titleLabel="Loueur"
+                                   inputName="type"
+                                   inputValue="OWNER"
+                                   inputOnChange={(e) => {
+                                       addType(e);
+                                   }}>
+                        </FormInput>
+                    </div>
                     <FormButton handleClick={submitPost} btnClass="btn btn__form btn__blue" text="Valider"></FormButton>
                 </form>
             </Modal>

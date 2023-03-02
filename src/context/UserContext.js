@@ -31,7 +31,7 @@ export const UserContextProvider = ({children}) => {
         localStorage.setItem('token',token);
         UserService.getMe(localStorage.getItem('token'))
             .then(res => {
-                if(res.auth == false){
+                if(res.auth === false){
                     router.push("/login");
                 }else {
                     setUser(res);
@@ -40,6 +40,7 @@ export const UserContextProvider = ({children}) => {
         console.log(user);
         if(localStorage.getItem('redirect')){
             router.push(localStorage.getItem('redirect'));
+            localStorage.removeItem('redirect');
         } else {
             router.push("/profil");
         }
