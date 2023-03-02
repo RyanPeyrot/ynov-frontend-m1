@@ -123,6 +123,12 @@
       background: -webkit-linear-gradient(left,  #ee2952 0%,#ff0084 100%); /* Chrome10-25,Safari5.1-6 */
       background: linear-gradient(to right,  #ee2952 0%,#ff0084 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee2952', endColorstr='#ff0084',GradientType=1 ); /* IE6-9 */
+      &:hover{
+        box-shadow: 0 0 8px 1px rgba(0,0,0,0.5);
+      }
+      &:active{
+        box-shadow: none;
+      }
     }
     &__divider{
       border-top: 2px solid #bbb;

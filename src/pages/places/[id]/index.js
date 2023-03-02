@@ -50,7 +50,15 @@ const Index = () => {
             numberOfNight : night
         }
 
-        bookingService.createOne(localStorage.getItem('token'),newBooking);
+        bookingService.createOne(localStorage.getItem('token'),newBooking).then(res => {
+            if(res){
+                document.getElementById("iBook").style.color= "#33b864"
+                document.getElementById("iBook").innerHTML = "Reservation prise en compte !";
+            } else {
+                document.getElementById("iBook").style.color = "#d62828"
+                document.getElementById("iBook").innerHTML = "Erreur lors de la reservation !";
+            }
+        });
     }
 
     function inputEnter(e) {
@@ -158,6 +166,7 @@ const Index = () => {
                         </div>
                         <i id="iError" className={styles.errorDate}></i>
                         <div className={styles.booking__recap__button} onClick={book}>Reserver</div>
+                        <i id="iBook"></i>
                         <div className={styles.booking__recap__divider}></div>
                         <div className={styles.booking__recap__total}>
                             <div><span>Total</span></div>

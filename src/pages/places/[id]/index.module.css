@@ -118,6 +118,12 @@
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#ee2952", endColorstr="#ff0084",GradientType=1 );
   /* IE6-9 */
 }
+.booking__recap__button:hover {
+  box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.5);
+}
+.booking__recap__button:active {
+  box-shadow: none;
+}
 .booking__recap__divider {
   border-top: 2px solid #bbb;
 }

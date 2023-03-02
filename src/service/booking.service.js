@@ -7,7 +7,7 @@ export default {
                 'authorization':token
             },
             body:JSON.stringify(booking)
-        }).then(res => res.json())
+        }).then(res => res.ok)
     },
     getAll(token){
         return fetch(`${process.env.NEXT_PUBLIC_API_BASEURL}/v1/booking`,{
