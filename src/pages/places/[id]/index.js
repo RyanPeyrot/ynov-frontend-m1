@@ -1,14 +1,20 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import PlaceService from "../../../service/place.service";
 import {useRouter} from "next/router";
 import styles from './index.module.scss'
+import bookingService from "../../../service/booking.service";
+import PlaceContext from "../../../context/PlaceContext";
+import UserContext from "../../../context/UserContext";
 
 const Index = () => {
+    const {user} = useContext(UserContext);
     const router = useRouter();
     const [place,setPlace] = useState(null);
     const [checkIn, setCheckIn] = useState(null);
     const [checkOut, setCheckOut] = useState(null);
-    const [total, setTotal] = useState()
+    const [night, setNight] = useState();
+    const [total, setTotal] = useState();
+    const [booking,setBooking] = useState();
 
     useEffect(() => {
         if(router.isReady) {
@@ -20,15 +26,31 @@ const Index = () => {
     },[router.isReady])
 
     function book(){
+        console.log("book");
         if(checkIn.toString() === "Invalid Date"){
             document.getElementById("check-in").parentElement.style.borderColor = "#d62828"
             document.getElementById("iError").innerHTML = "Date invalide"
+            return false;
         }
         if(checkOut.toString() === "Invalid Date" || checkOut <= checkIn){
             document.getElementById("check-out").parentElement.style.borderColor = "#d62828"
             document.getElementById("iError").innerHTML = "Date invalide"
+            return false
         }
-        //TODO : Book
+
+        if(user == null){
+            router.push('/login');
+        }
+
+        const newBooking = {
+            place : router.query.id,
+            guest: user._id,
+            arrival : checkIn,
+            departure : checkOut,
+            numberOfNight : night
+        }
+
+        bookingService.createOne(localStorage.getItem('token'),newBooking);
     }
 
     function inputEnter(e) {
@@ -60,8 +82,8 @@ const Index = () => {
     useEffect(() => {
         if(checkOut != null){
             if(checkOut.toString() !== "Invalid Date" || checkOut > checkIn){
-                console.log(2)
                 const numberOfDay = (checkOut.getTime() - checkIn.getTime())/ (1000 * 3600 * 24)
+                setNight(numberOfDay);
                 setTotal(numberOfDay * place.pricing.perDay);
             } else {
                 setTotal('');
@@ -134,7 +156,7 @@ const Index = () => {
                             </div>
                         </div>
                         <i id="iError" className={styles.errorDate}></i>
-                        <div className={styles.booking__recap__button}>Reserver</div>
+                        <div className={styles.booking__recap__button} onClick={book}>Reserver</div>
                         <div className={styles.booking__recap__divider}></div>
                         <div className={styles.booking__recap__total}>
                             <div><span>Total</span></div>

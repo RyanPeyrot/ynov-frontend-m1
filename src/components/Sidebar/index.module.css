@@ -1,14 +1,17 @@
 .sidebar__main {
-  width: 10%;
+  width: 15%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   box-shadow: 10px 0px 10px 10px #e2e1e1ab;
   font-size: 30px;
+  position: fixed;
+  top: 0;
 }
 .sidebar__title {
-  margin: 10px 0 0 20px;
+  font-size: 20px;
+  margin: 10px 0 30px 20px;
 }
 .sidebar__menu {
   height: 100%;
@@ -20,10 +23,16 @@
   display: flex;
   flex-direction: column;
 }
+.sidebar__menu .navbar__list .navbar__item {
+  margin: 0 0 20px 0;
+}
 .sidebar__menu .navbar__list .navbar__item a {
   color: black;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 20px;
+}
+.sidebar__menu .navbar__list .navbar__item a:hover {
+  text-decoration: underline;
 }
 .sidebar__menu .navbar__list .navbar__bottom {
   margin-top: auto;

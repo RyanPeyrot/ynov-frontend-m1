@@ -5,7 +5,7 @@ const AdminLayout = ({children}) => {
     return (
         <>
             <Sidebar/>
-            <main>
+            <main style={{"padding-left" : "20%"}}>
                 {children}
             </main>
         </>
