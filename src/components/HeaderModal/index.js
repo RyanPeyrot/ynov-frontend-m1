@@ -5,6 +5,7 @@ import UserContext from "../../context/UserContext";
 
 const Index = ({isLogged}) => {
     const {disconnect,user} = useContext(UserContext);
+    console.log(user)
 
     return (
         <div>
@@ -15,13 +16,13 @@ const Index = ({isLogged}) => {
                             <Link href="/profil">Mon profil</Link>
                         </li>
                         <li className={styles.nav__item}>
-                            <Link href="/">Mes reservations</Link>
+                            <Link href="/myRents">Mes reservations</Link>
                         </li>
-                            { user.type.length >0 && user.type.includes("OWNER")
-
+                            { user.type.length >0 && user.type.includes("OWNER") ?
                                 (<li className={styles.nav__item}>
-                                    <Link href="/">Mes annonces</Link>
+                                    <Link href="/myPlaces">Mes annonces</Link>
                                 </li>)
+                                : null
                             }
                         { user.isAdmin ? (
                             <li className={styles.nav__item}>

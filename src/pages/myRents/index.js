@@ -6,6 +6,7 @@ import decline from "../../../public/declin.png"
 
 
 const Index = () => {
+
     return (
         <div>
             <TitlePage title="Mes reservations"></TitlePage>
